@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="Style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Your HTML content -->
+    <section class="what-we-do">
+        <h2>What We Do</h2>
+        <div class="slider">
+            <div class="slide">
+                <img src="image1.jpg" alt="Image 1" class="slide-img">
+                <div class="slide-content">
+                    <h3>Service 1</h3>
+                    <p>Description of service 1.</p>
+                    <a href="#" target="_blank" class="read-more">Read more</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="image2.jpg" alt="Image 2" class="slide-img">
+                <div class="slide-content">
+                    <h3>Service 2</h3>
+                    <p>Description of service 2.</p>
+                    <a href="#" target="_blank" class="read-more">Read more</a>
+                </div>
+            </div>
+            <!-- Add more slides as needed -->
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <!-- Add more dots based on the number of slides -->
+        </div>
+    </section>
+
+    <!-- Bootstrap JavaScript and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let slides = document.getElementsByClassName("slide");
+                let dots = document.getElementsByClassName("dot");
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                    dots[i].classList.remove("active");
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].classList.add("active");
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+
+            // Show slide content on hover
+            let slideContent = document.getElementsByClassName("slide-content");
+            for (let i = 0; i < slideContent.length; i++) {
+                slideContent[i].addEventListener("mouseenter", function() {
+                    this.style.display = "block";
+                });
+                slideContent[i].addEventListener("mouseleave", function() {
+                    this.style.display = "none";
+                });
+            }
+        });
+    </script>
+</body>
+</html>
